@@ -1,4 +1,4 @@
-import { ADD_TO_BUDGET, BudgetActions, SUBTRACT_FROM_BUDGET } from "../Actions/budget.actions"
+import { ADD_TO_BUDGET, BudgetActions, SUBTRACT_FROM_BUDGET } from "../../Actions/BudgetActions/budget.actions"
 import produce, { Draft } from 'immer';
 
 export interface BudgetState {
