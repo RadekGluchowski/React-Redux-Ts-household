@@ -13,12 +13,18 @@ function Dashboard() {
   );
 
   const dispatch = useDispatch();
-  const onAddToBudget = (resources: number) => {
-    dispatch(addToBudget(Number(resources)));
+  const onAddToBudget = (inputValue: number) => {
+    dispatch(addToBudget(Number(inputValue)));
   };
 
-  const onSubtractFromBudget = (resources: number) => {
-    dispatch(subtractFromBudget(Number(resources)));
+  const onSubtractFromBudget = (inputValue: number) => {
+    const resourcesToSubtract = Number(inputValue);
+
+    if (resourcesToSubtract < resources) {
+      dispatch(subtractFromBudget(Number(resourcesToSubtract)));
+    } else {
+      alert("You don't have enought resources to spend!!");
+    }
   };
 
   return (
