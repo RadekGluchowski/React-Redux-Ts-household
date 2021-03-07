@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { GoalsState } from "../../Store/Reducers/GoalsReducer/goals.reducer";
 import { addGoal } from "../../Store/Actions/GoalsActions/goals.actions";
 import { GoalsForm } from "../../Components/Forms/GoalsForm";
+import { AppState } from "../../Store/Reducers/root-reducer";
 
 function Goals() {
-  const test = useSelector<GoalsState, GoalsState["goals"]>(
-    (state) => state.goals
+  const goals = useSelector<AppState, GoalsState["goals"]>(
+    (state) => state.goalReducer.goals
   );
 
   const dispatch = useDispatch();
@@ -14,12 +15,9 @@ function Goals() {
     dispatch(addGoal(goal));
   };
 
-  console.log(test);
-
   return (
     <div>
       <GoalsForm saveGoal={onSaveGoal} />
-      <pre>{test}</pre>
     </div>
   );
 }

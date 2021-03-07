@@ -1,15 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { InputsWithButton } from "../../Components/Inputs/InputsWithButton";
+import { InputWithButton } from "../../Components/Inputs/InputWithButton";
 import {
   addToBudget,
   subtractFromBudget,
-} from "../../Store/Actions/budget.actions";
-import { BudgetState } from "../../Store/Reducers/budget.reducer";
+} from "../../Store/Actions/BudgetActions/budget.actions";
+import { BudgetState } from "../../Store/Reducers/BudgetReducer/budget.reducer";
+import { AppState } from "../../Store/Reducers/root-reducer";
 
 function Dashboard() {
-  const resources = useSelector<BudgetState, BudgetState["resources"]>(
-    (state) => state.resources
+  const resources = useSelector<AppState, BudgetState["resources"]>(
+    (state) => state.budgetReducer.resources
   );
 
   const dispatch = useDispatch();
@@ -29,14 +30,14 @@ function Dashboard() {
 
   return (
     <div>
-      <InputsWithButton
+      <InputWithButton
         onButtonClick={onAddToBudget}
         buttonText="Add Resources"
         inputName="addResources"
         inputType="number"
         inputPlaceHolder="1504..."
       />
-      <InputsWithButton
+      <InputWithButton
         onButtonClick={onSubtractFromBudget}
         buttonText="Subtract Resources"
         inputName="subtractResources"

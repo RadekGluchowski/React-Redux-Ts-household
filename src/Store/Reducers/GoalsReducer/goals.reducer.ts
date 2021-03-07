@@ -14,7 +14,6 @@ export const goalReducer = (state: GoalsState = initialState, action: GoalsActio
         switch (action.type) {
             case ADD_GOAL:
                 draft.goals = [...draft.goals, action.payload];
-                console.log(draft.goals)
                 break;
             default:
                 return draft;
