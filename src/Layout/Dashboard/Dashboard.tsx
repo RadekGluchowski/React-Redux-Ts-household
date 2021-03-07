@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { InputsWithButton } from "../../Components/Inputs/InputsWithButton";
-import { addToBudget } from "../../Store/Actions/budget.actions";
+import {
+  addToBudget,
+  subtractFromBudget,
+} from "../../Store/Actions/budget.actions";
 import { BudgetState } from "../../Store/Reducers/budget.reducer";
 
 function Dashboard() {
@@ -11,16 +14,28 @@ function Dashboard() {
 
   const dispatch = useDispatch();
   const onAddToBudget = (resources: number) => {
-    dispatch(addToBudget(resources));
+    dispatch(addToBudget(Number(resources)));
   };
+
+  const onSubtractFromBudget = (resources: number) => {
+    dispatch(subtractFromBudget(Number(resources)));
+  };
+
   return (
     <div>
       <InputsWithButton
         onButtonClick={onAddToBudget}
         buttonText="Add Resources"
-        inputName="resources"
+        inputName="addResources"
         inputType="number"
-        inputPlaceHolder="...1504"
+        inputPlaceHolder="1504..."
+      />
+      <InputsWithButton
+        onButtonClick={onSubtractFromBudget}
+        buttonText="Subtract Resources"
+        inputName="subtractResources"
+        inputType="number"
+        inputPlaceHolder="150..."
       />
       <pre>{resources}</pre>
     </div>
