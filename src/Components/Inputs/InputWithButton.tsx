@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
-interface InputsWithButtonProps {
+interface InputWithButtonProps {
   onButtonClick(resources: number): void;
   buttonText: string;
   inputType: string;
@@ -8,7 +8,7 @@ interface InputsWithButtonProps {
   inputName: string;
 }
 
-export const InputsWithButton: React.FC<InputsWithButtonProps> = ({
+export const InputWithButton: React.FC<InputWithButtonProps> = ({
   onButtonClick,
   buttonText,
   inputType,
