@@ -4,6 +4,7 @@ import { GoalsState } from "../../Store/Reducers/GoalsReducer/goals.reducer";
 import { addGoal } from "../../Store/Actions/GoalsActions/goals.actions";
 import { GoalsForm } from "../../Components/Forms/GoalsForm";
 import { AppState } from "../../Store/Reducers/root-reducer";
+import { ListOfGoals } from "../../Components/Lists/ListOfGoals";
 
 function Goals() {
   const goals = useSelector<AppState, GoalsState["goals"]>(
@@ -15,9 +16,12 @@ function Goals() {
     dispatch(addGoal(goal));
   };
 
+  console.log(goals);
+
   return (
     <div>
       <GoalsForm saveGoal={onSaveGoal} />
+      <ListOfGoals goals={goals} />
     </div>
   );
 }
