@@ -4,6 +4,7 @@ import Dashboard from "./Layout/Dashboard/Dashboard";
 import Goals from "./Layout/Goals/Goals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TopNavBar from "./Components/TopNavBar/TopNavBar";
+import Footer from "./Components/Footer/Footer";
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/Goals" component={Goals} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
