@@ -15,7 +15,7 @@ export const InputWithButton: React.FC<InputWithButtonProps> = ({
   inputPlaceHolder,
   inputName,
 }) => {
-  const [inputValue, setInputValue] = useState<any>(null);
+  const [inputValue, setInputValue] = useState<any>(undefined);
 
   const updateInput = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
