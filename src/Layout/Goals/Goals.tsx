@@ -16,12 +16,14 @@ function Goals() {
     dispatch(addGoal(goal));
   };
 
-  console.log(goals);
+  const handleEditGoal = (goal: object, index: number) => {
+    console.log(goal, index);
+  };
 
   return (
     <div>
       <GoalsForm saveGoal={onSaveGoal} />
-      <ListOfGoals goals={goals} />
+      <ListOfGoals goals={goals} editGoal={handleEditGoal} />
     </div>
   );
 }
