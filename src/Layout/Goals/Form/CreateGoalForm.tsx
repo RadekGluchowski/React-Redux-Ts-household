@@ -10,7 +10,7 @@ interface GoalsFormValues {
   goalNeededResources: number;
 }
 
-export const GoalsForm: React.FC<GoalsFormProps> = ({ saveGoal }) => {
+export const CreateGoalForm: React.FC<GoalsFormProps> = ({ saveGoal }) => {
   const initialValues: GoalsFormValues = {
     goalDescription: "",
     goalNeededResources: 0,

@@ -1,4 +1,5 @@
 import React from "react";
+import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
 
 interface ListOfGoalsProps {
   goals: any[];
@@ -21,8 +22,10 @@ export const ListOfGoals: React.FC<ListOfGoalsProps> = ({
       {goals.map((goal, index) => (
         <div key={index}>
           <div onClick={() => handleGoalClick(goal, index)}>
-            {goal.goalDescription}
-            {goal.goalNeededResources}
+            <DisplayGoals
+              goalDescription={goal.goalDescription}
+              goalNeededResources={goal.goalNeededResources}
+            />
           </div>
         </div>
       ))}
