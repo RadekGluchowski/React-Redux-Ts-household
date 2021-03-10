@@ -17,15 +17,19 @@ export const EditGoal: React.FC<EditGoalProps> = ({
     typeof goalToEdit !== "undefined" ? setModal(true) : setModal(false);
   }, [goalToEdit]);
 
+  const handleClosePopup = () => {
+    setGoalToEdit(undefined);
+  };
+
   return (
     <>
       <div>
         <Modal
           isOpen={isModalOpen}
-          onRequestClose={() => setGoalToEdit(undefined)}
+          onRequestClose={handleClosePopup}
           contentLabel="Edit Goal"
         >
-          <button onClick={() => setGoalToEdit(undefined)}>close</button>
+          <button onClick={handleClosePopup}>close</button>
           {typeof goalToEdit !== "undefined" ? (
             <DisplayGoals
               goalDescription={goalToEdit.goal.goalDescription}
