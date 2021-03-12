@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GoalsState } from "../../Store/Reducers/GoalsReducer/goals.reducer";
 import { addGoal } from "../../Store/Actions/GoalsActions/goals.actions";
@@ -13,15 +13,18 @@ function Goals() {
   );
 
   const [goalToEdit, setGoalToEdit] = useState<object>();
-
   const dispatch = useDispatch();
-  const onSaveGoal = (goal: object) => {
-    dispatch(addGoal(goal));
-  };
 
-  const handleEditGoal = (goal: object, index: number) => {
+  const onSaveGoal = useCallback(
+    (goal: object) => {
+      dispatch(addGoal(goal));
+    },
+    [dispatch]
+  );
+
+  const handleEditGoal = useCallback((goal: object, index: number) => {
     setGoalToEdit({ index, goal });
-  };
+  }, []);
 
   return (
     <div>
