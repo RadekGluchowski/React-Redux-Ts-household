@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
 
 interface InputWithButtonProps {
   onButtonClick(resources: number): void;
@@ -17,14 +17,14 @@ export const InputWithButton: React.FC<InputWithButtonProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState<any>(undefined);
 
-  const updateInput = (event: ChangeEvent<HTMLInputElement>) => {
+  const updateInput = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
-  };
+  }, []);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     onButtonClick(inputValue);
     setInputValue(0);
-  };
+  }, [inputValue, onButtonClick]);
 
   return (
     <div>
