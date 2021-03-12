@@ -1,8 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
+import { InputWithButton } from "../../../Components/Inputs/InputWithButton";
 import { subtractFromBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
-import { doneGoal } from "../../../Store/Actions/GoalsActions/goals.actions";
+import {
+  chargeGoal,
+  doneGoal,
+} from "../../../Store/Actions/GoalsActions/goals.actions";
 import { BudgetState } from "../../../Store/Reducers/BudgetReducer/budget.reducer";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
@@ -40,6 +44,19 @@ export const EditGoal: React.FC<EditGoalProps> = ({
     }
   }, [dispatch, goalToEdit, resources, setGoalToEdit]);
 
+  const handleChargeGoal = useCallback(
+    (value) => {
+      if (resources > value) {
+        dispatch(subtractFromBudget(value));
+        dispatch(chargeGoal(value, goalToEdit.index));
+        setGoalToEdit(undefined);
+      } else {
+        alert("You don't have money for this operation!");
+      }
+    },
+    [dispatch, goalToEdit, resources, setGoalToEdit]
+  );
+
   return (
     <>
       <div>
@@ -48,7 +65,6 @@ export const EditGoal: React.FC<EditGoalProps> = ({
           onRequestClose={handleClosePopup}
           contentLabel="Edit Goal"
         >
-          <button onClick={handleClosePopup}>close</button>
           {typeof goalToEdit !== "undefined" ? (
             <DisplayGoals
               goalDescription={goalToEdit.goal.goalDescription}
@@ -56,6 +72,14 @@ export const EditGoal: React.FC<EditGoalProps> = ({
             />
           ) : null}
           <button onClick={handleDoneGoal}> Done Goal </button>
+          <InputWithButton
+            onButtonClick={handleChargeGoal}
+            buttonText={"Spend on goal"}
+            inputType={"number"}
+            inputPlaceHolder={"150"}
+            inputName={"Spend on goal"}
+          />
+          <button onClick={handleClosePopup}>close</button>
         </Modal>
       </div>
     </>
