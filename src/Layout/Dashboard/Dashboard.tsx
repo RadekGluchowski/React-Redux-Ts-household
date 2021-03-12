@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { InputWithButton } from "../../Components/Inputs/InputWithButton";
 import {
@@ -14,11 +14,13 @@ function Dashboard() {
   );
 
   const dispatch = useDispatch();
-  const onAddToBudget = (inputValue: number) => {
-    dispatch(addToBudget(Number(inputValue)));
-  };
 
-  const onSubtractFromBudget = (inputValue: number) => {
+  const onAddToBudget = useCallback((inputValue) => {
+    dispatch(addToBudget(Number(inputValue)));
+  }, [dispatch]);
+
+
+  const onSubtractFromBudget = useCallback((inputValue: number) => {
     const resourcesToSubtract = Number(inputValue);
 
     if (resourcesToSubtract < resources) {
@@ -26,7 +28,8 @@ function Dashboard() {
     } else {
       alert("You don't have enought resources to spend!!");
     }
-  };
+  }, [dispatch, resources]);
+
 
   return (
     <div>
