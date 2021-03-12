@@ -46,15 +46,19 @@ export const EditGoal: React.FC<EditGoalProps> = ({
 
   const handleChargeGoal = useCallback(
     (value) => {
-      if (resources > value) {
-        dispatch(subtractFromBudget(value));
-        dispatch(chargeGoal(value, goalToEdit.index));
+      if (resources >= value) {
+        if (goalToEdit.goal.goalNeededResources === Number(value)) {
+          handleDoneGoal();
+        } else {
+          dispatch(subtractFromBudget(value));
+          dispatch(chargeGoal(value, goalToEdit.index));
+        }
         setGoalToEdit(undefined);
       } else {
         alert("You don't have money for this operation!");
       }
     },
-    [dispatch, goalToEdit, resources, setGoalToEdit]
+    [dispatch, goalToEdit, handleDoneGoal, resources, setGoalToEdit]
   );
 
   return (
