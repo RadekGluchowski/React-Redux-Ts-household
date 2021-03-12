@@ -14,6 +14,7 @@
     "@types/react-modal": "^3.12.0",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
+    "eslint-plugin-react-perf": "^3.3.0",
     "formik": "^2.2.6",
     "immer": "^8.0.1",
     "react": "^17.0.1",
@@ -37,7 +38,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:react-perf/recommended"
     ]
   },
   "browserslist": {
