@@ -1,3 +1,4 @@
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import React from "react";
 import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
 
