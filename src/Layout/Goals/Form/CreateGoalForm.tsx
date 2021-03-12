@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Formik, Form, Field } from "formik";
 
 interface GoalsFormProps {
@@ -11,21 +11,23 @@ interface GoalsFormValues {
 }
 
 export const CreateGoalForm: React.FC<GoalsFormProps> = ({ saveGoal }) => {
-  const initialValues: GoalsFormValues = {
+  const [initalValues] = useState<GoalsFormValues>({
     goalDescription: "",
     goalNeededResources: 0,
-  };
+  });
+
+  const handleOnSubmit = useCallback(
+    (values, actions) => {
+      saveGoal(values);
+      actions.setSubmitting(false);
+    },
+    [saveGoal]
+  );
 
   return (
     <div>
       <h1>Goals</h1>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values, actions) => {
-          saveGoal(values);
-          actions.setSubmitting(false);
-        }}
-      >
+      <Formik initialValues={initalValues} onSubmit={handleOnSubmit}>
         <Form>
           <label htmlFor="goalDescription">Goal </label>
           <Field
