@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { subtractFromBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
@@ -26,11 +26,11 @@ export const EditGoal: React.FC<EditGoalProps> = ({
     typeof goalToEdit !== "undefined" ? setModal(true) : setModal(false);
   }, [goalToEdit]);
 
-  const handleClosePopup = () => {
+  const handleClosePopup = useCallback(() => {
     setGoalToEdit(undefined);
-  };
+  }, [setGoalToEdit]);
 
-  const handleDoneGoal = () => {
+  const handleDoneGoal = useCallback(() => {
     if (resources > goalToEdit.goal.goalNeededResources) {
       dispatch(doneGoal(goalToEdit));
       dispatch(subtractFromBudget(goalToEdit.goal.goalNeededResources));
@@ -38,7 +38,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
     } else {
       alert("You don't have money for this operation!");
     }
-  };
+  }, [dispatch, goalToEdit, resources, setGoalToEdit]);
 
   return (
     <>
