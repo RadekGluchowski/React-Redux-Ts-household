@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopNavBar() {
@@ -7,6 +6,7 @@ export default function TopNavBar() {
       <nav>
         <Link to="/">Dashboard </Link>
         <Link to="/Goals">Goals</Link>
+        <Link to="/Investment"> Investment</Link>
       </nav>
     </div>
   );

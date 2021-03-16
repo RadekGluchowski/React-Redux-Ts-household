@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GoalsState } from "../../Store/Reducers/GoalsReducer/goals.reducer";
 import { addGoal } from "../../Store/Actions/GoalsActions/goals.actions";
