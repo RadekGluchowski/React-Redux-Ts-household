@@ -51,7 +51,6 @@ function Dashboard() {
         inputType="number"
         inputPlaceHolder="150..."
       />
-      <pre>{resources}</pre>
     </div>
   );
 }
