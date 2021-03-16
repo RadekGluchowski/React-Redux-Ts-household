@@ -1,5 +1,11 @@
+import { CreateInvestmentForm } from "./Form/CreateInvestmentForm";
+
 function Investment() {
-  return <div></div>;
+  return (
+    <div>
+      <CreateInvestmentForm />
+    </div>
+  );
 }
 
 export default Investment;
