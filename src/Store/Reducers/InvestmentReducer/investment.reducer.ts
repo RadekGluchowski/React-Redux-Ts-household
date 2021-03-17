@@ -9,7 +9,7 @@ const initialState = {
     investment: []
 }
 
-export const goalReducer = (state: InvestmentState = initialState, action: InvestmentActions) => {
+export const investmentReducer = (state: InvestmentState = initialState, action: InvestmentActions) => {
     return produce(state, (draft: Draft<InvestmentState>) => {
         switch (action.type) {
             case ADD_INVESTMENT:

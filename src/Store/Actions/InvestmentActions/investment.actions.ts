@@ -4,7 +4,7 @@ export const DONE_INVESTMENT = "DONE_INVESTMENT";
 type AddInvestmentAction = { type: typeof ADD_INVESTMENT, payload: object }
 type DoneInvestmentAction = { type: typeof DONE_INVESTMENT, payload: any }
 
-export const addInvestnemt = (investnemt: object): AddInvestmentAction => ({
+export const addInvestment = (investnemt: object): AddInvestmentAction => ({
     type: ADD_INVESTMENT,
     payload: investnemt
 });
