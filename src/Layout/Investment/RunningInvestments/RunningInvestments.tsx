@@ -4,6 +4,7 @@ import { InvestmentState } from "../../../Store/Reducers/InvestmentReducer/inves
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import Countdown from "react-countdown";
 import { useCallback } from "react";
+import { addToBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
 
 interface InvestmentObject {
   id?: string;
@@ -16,19 +17,40 @@ export const RunningInvestments = () => {
   );
   const dispatch = useDispatch();
 
-  const checkTypeOfInvestment = (typeOfInvestment: string) => {
+  const convertTypeOfInvestmentToTimeInMs = (typeOfInvestment: string) => {
     switch (typeOfInvestment) {
       case "long term":
-        return 6000;
+        return 60000;
       case "midium term":
-        return 4000;
+        return 40000;
       default:
-        return 2000;
+        return 20000;
+    }
+  };
+
+  const countIncomeAfterInvestment = (investment: any) => {
+    switch (investment.values.typeOfInvestment) {
+      case "long term":
+        return (
+          investment.values.investmentAmount +
+          (7 / 100) * investment.values.investmentAmount
+        );
+      case "midium term":
+        return (
+          investment.values.investmentAmount +
+          (4 / 100) * investment.values.investmentAmount
+        );
+      default:
+        return (
+          investment.values.investmentAmount +
+          (2 / 100) * investment.values.investmentAmount
+        );
     }
   };
 
   const handleonComplete = useCallback(
     (investmentToRun: object) => {
+      dispatch(addToBudget(countIncomeAfterInvestment(investmentToRun)));
       dispatch(doneInvestment(investmentToRun));
     },
     [dispatch]
@@ -38,11 +60,16 @@ export const RunningInvestments = () => {
     <div>
       {investments.map((investmentToRun: InvestmentObject) => (
         <div key={investmentToRun.id}>
-          {investmentToRun.values?.typeOfInvestment}{" "}
+          <div>
+            {investmentToRun.values?.typeOfInvestment} Invested:{" "}
+            {investmentToRun.values?.investmentAmount}
+          </div>
           <Countdown
             date={
               Date.now() +
-              checkTypeOfInvestment(investmentToRun.values?.typeOfInvestment)
+              convertTypeOfInvestmentToTimeInMs(
+                investmentToRun.values?.typeOfInvestment
+              )
             }
             // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
             onComplete={() => handleonComplete(investmentToRun)}
