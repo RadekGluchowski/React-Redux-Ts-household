@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Formik, Form, Field } from "formik";
+import nextId from "react-id-generator";
 
 interface CreateInvestmentFormProps {
   runInvestment(investment: object): void;
@@ -20,7 +21,7 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
 
   const handleOnSubmit = useCallback(
     (values, actions) => {
-      runInvestment(values);
+      runInvestment({ values, id: nextId() });
       actions.setSubmitting(false);
       actions.resetForm(initalValues);
     },
