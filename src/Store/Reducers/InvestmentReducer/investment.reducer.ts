@@ -16,7 +16,7 @@ export const investmentReducer = (state: InvestmentState = initialState, action:
                 draft.investments = [...draft.investments, action.payload];
                 break;
             case DONE_INVESTMENT:
-
+                console.log(action.payload)
                 break;
             default:
                 return draft;
