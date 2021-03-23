@@ -1,16 +1,15 @@
 import { useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { GoalsState } from "../../Store/Reducers/GoalsReducer/goals.reducer";
 import { addGoal } from "../../Store/Actions/GoalsActions/goals.actions";
 import { CreateGoalForm } from "./Form/CreateGoalForm";
 import { AppState } from "../../Store/Reducers/root-reducer";
 import { ListOfGoals } from "./List/ListOfGoals";
 import { EditGoal } from "./EditGoal/EditGoal";
+import { selectGoals } from "../../Store/Selectors/Selectors";
+import { Goal } from "../../interfaces/goal.interface";
 
 function Goals() {
-  const goals = useSelector<AppState, GoalsState["goals"]>(
-    (state) => state.goalReducer.goals
-  );
+  const goals = useSelector<AppState, Goal[]>(selectGoals);
 
   const [goalToEdit, setGoalToEdit] = useState<object>();
   const dispatch = useDispatch();
