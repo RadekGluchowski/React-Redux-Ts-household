@@ -1,8 +1,8 @@
 export const ADD_TO_BUDGET = "ADD_TO_BUDGET"
 export const SUBTRACT_FROM_BUDGET = "SUBTRACT_FROM_BUDGET"
 
-type AddToBudgetAction = { type: typeof ADD_TO_BUDGET, payload: number }
-type SubtractFromBudgetAction = { type: typeof SUBTRACT_FROM_BUDGET, payload: number }
+export type AddToBudgetAction = { type: typeof ADD_TO_BUDGET, payload: number }
+export type SubtractFromBudgetAction = { type: typeof SUBTRACT_FROM_BUDGET, payload: number }
 
 export const subtractFromBudget = (resources: number): SubtractFromBudgetAction => ({
     type: SUBTRACT_FROM_BUDGET,

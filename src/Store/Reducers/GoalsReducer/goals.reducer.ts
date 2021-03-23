@@ -1,8 +1,9 @@
 import { ADD_GOAL, GoalsActions, DONE_GOAL, CHARGE_GOAL } from "../../Actions/GoalsActions/goals.actions"
 import produce, { Draft } from 'immer';
+import { Goal } from "../../../interfaces/goal.interface";
 
 export interface GoalsState {
-    goals: any
+    goals: Goal[]
 }
 
 const initialState = {
@@ -16,7 +17,7 @@ export const goalReducer = (state: GoalsState = initialState, action: GoalsActio
                 draft.goals = [...draft.goals, action.payload];
                 break;
             case DONE_GOAL:
-                draft.goals = draft.goals.filter((value: any, index: any) => index !== action.payload.index);
+                draft.goals = draft.goals.filter((value: any, index: number) => index !== action.payload.index);
                 break;
             case CHARGE_GOAL:
                 draft.goals[action.payload.goalIndex].goalNeededResources = state.goals[action.payload.goalIndex].goalNeededResources - action.payload.charge

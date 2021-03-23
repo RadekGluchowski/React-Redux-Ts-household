@@ -15,7 +15,7 @@ function Goals() {
   const dispatch = useDispatch();
 
   const onSaveGoal = useCallback(
-    (goal: object) => {
+    (goal: Goal) => {
       dispatch(addGoal(goal));
     },
     [dispatch]

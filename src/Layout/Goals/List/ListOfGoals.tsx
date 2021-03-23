@@ -1,9 +1,10 @@
 /* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import React from "react";
+import { Goal } from "../../../interfaces/goal.interface";
 import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
 
 interface ListOfGoalsProps {
-  goals: any[];
+  goals: Goal[];
   editGoal(goal: object, index: number): void;
 }
 
@@ -12,7 +13,7 @@ export const ListOfGoals: React.FC<ListOfGoalsProps> = ({
   editGoal,
 }) => {
   const handleGoalClick = (
-    goal: React.MouseEvent<HTMLDivElement>,
+    goal: Goal,
     index: number
   ) => {
     editGoal(goal, index);

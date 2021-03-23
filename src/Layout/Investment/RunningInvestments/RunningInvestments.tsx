@@ -5,11 +5,7 @@ import { AppState } from "../../../Store/Reducers/root-reducer";
 import Countdown from "react-countdown";
 import { useCallback } from "react";
 import { addToBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
-
-interface InvestmentObject {
-  id?: string;
-  values?: any;
-}
+import { Investment } from "../../../interfaces/investment.interface";
 
 export const RunningInvestments = () => {
   const investments = useSelector<AppState, InvestmentState["investments"]>(
@@ -17,7 +13,9 @@ export const RunningInvestments = () => {
   );
   const dispatch = useDispatch();
 
-  const convertTypeOfInvestmentToTimeInMs = (typeOfInvestment: string) => {
+  const convertTypeOfInvestmentToTimeInMs = (
+    typeOfInvestment: string | undefined
+  ) => {
     switch (typeOfInvestment) {
       case "long term":
         return 60000;
@@ -28,8 +26,8 @@ export const RunningInvestments = () => {
     }
   };
 
-  const countIncomeAfterInvestment = (investment: any) => {
-    switch (investment.values.typeOfInvestment) {
+  const countIncomeAfterInvestment = (investment: Investment) => {
+    switch (investment?.values?.typeOfInvestment) {
       case "long term":
         return (
           investment.values.investmentAmount +
@@ -40,16 +38,18 @@ export const RunningInvestments = () => {
           investment.values.investmentAmount +
           (4 / 100) * investment.values.investmentAmount
         );
-      default:
+      case "short term":
         return (
           investment.values.investmentAmount +
           (2 / 100) * investment.values.investmentAmount
         );
+      default:
+        return 0;
     }
   };
 
   const handleonComplete = useCallback(
-    (investmentToRun: object) => {
+    (investmentToRun: Investment) => {
       dispatch(addToBudget(countIncomeAfterInvestment(investmentToRun)));
       dispatch(doneInvestment(investmentToRun));
     },
@@ -58,7 +58,7 @@ export const RunningInvestments = () => {
 
   return (
     <div>
-      {investments.map((investmentToRun: InvestmentObject) => (
+      {investments.map((investmentToRun: Investment) => (
         <div key={investmentToRun.id}>
           <div>
             {investmentToRun.values?.typeOfInvestment} Invested:{" "}
