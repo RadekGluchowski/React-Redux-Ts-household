@@ -3,6 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { Investment } from "../../../interfaces/investment.interface";
+import { selectInvestment } from "../../../Store/Selectors/Selectors";
 
 interface CreateInvestmentFormProps {
   runInvestment(investment: object): void;
@@ -11,9 +12,7 @@ interface CreateInvestmentFormProps {
 export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
   runInvestment,
 }) => {
-  /*   const investments = useSelector<AppState, Investment["investments"]>(
-    (state) => state.investmentReducer.investments
-  ); */
+  const investment = useSelector<AppState, Investment>(selectInvestment);
   const [initalValues] = useState<Investment>({
     investmentAmount: 0,
     typeOfInvestment: "midium term",
@@ -59,7 +58,7 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
             placeholder="Amount"
             type="number"
           />
-          <button /* disabled={!!investments.length} */ type="submit">
+          <button disabled={!!investment.typeOfInvestment} type="submit">
             Submit
           </button>
         </Form>

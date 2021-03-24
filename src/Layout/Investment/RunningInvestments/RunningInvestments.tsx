@@ -54,17 +54,22 @@ export const RunningInvestments = () => {
 
   return (
     <div>
-      <div>
-        {investment.typeOfInvestment} Invested: {investment.investmentAmount}
-      </div>
-      <Countdown
-        date={
-          Date.now() +
-          convertTypeOfInvestmentToTimeInMs(investment.typeOfInvestment)
-        }
-        // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
-        onComplete={() => handleonComplete(investment)}
-      />
+      {investment.typeOfInvestment ? (
+        <>
+          <div>
+            {investment.typeOfInvestment} Invested:{" "}
+            {investment.investmentAmount}
+          </div>
+          <Countdown
+            date={
+              Date.now() +
+              convertTypeOfInvestmentToTimeInMs(investment.typeOfInvestment)
+            }
+            // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
+            onComplete={() => handleonComplete(investment)}
+          />
+        </>
+      ) : null}
     </div>
   );
 };
