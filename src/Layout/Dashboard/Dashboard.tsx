@@ -8,6 +8,8 @@ import {
 } from "../../Store/Actions/BudgetActions/budget.actions";
 import { AppState } from "../../Store/Reducers/root-reducer";
 import { selectBudget } from "../../Store/Selectors/Selectors";
+import * as constants from "./Assets/constants";
+import { NO_RESOURCES_ALERT_MSG } from "../../Assets/globalConstants";
 
 function Dashboard() {
   const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
@@ -28,27 +30,29 @@ function Dashboard() {
       if (resourcesToSubtract < resources) {
         dispatch(subtractFromBudget(Number(resourcesToSubtract)));
       } else {
-        alert("You don't have enought resources to spend!!");
+        alert(NO_RESOURCES_ALERT_MSG);
       }
     },
     [dispatch, resources]
   );
 
+  const { ADD_BUTTON, SUBTRACT_BUTTON } = constants.DASHBOARD_BUTTONS;
+
   return (
     <div>
       <InputWithButton
         onButtonClick={onAddToBudget}
-        buttonText="Add Resources"
-        inputName="addResources"
-        inputType="number"
-        inputPlaceHolder="1504..."
+        buttonText={ADD_BUTTON.BUTTON_TEXT}
+        inputName={ADD_BUTTON.INPUT_NAME}
+        inputType={ADD_BUTTON.INPUT_TYPE}
+        inputPlaceHolder={ADD_BUTTON.INPUT_PLACEHOLDER}
       />
       <InputWithButton
         onButtonClick={onSubtractFromBudget}
-        buttonText="Subtract Resources"
-        inputName="subtractResources"
-        inputType="number"
-        inputPlaceHolder="150..."
+        buttonText={SUBTRACT_BUTTON.BUTTON_TEXT}
+        inputName={SUBTRACT_BUTTON.INPUT_NAME}
+        inputType={SUBTRACT_BUTTON.INPUT_TYPE}
+        inputPlaceHolder={SUBTRACT_BUTTON.INPUT_PLACEHOLDER}
       />
     </div>
   );
