@@ -1,3 +1,7 @@
+export interface Goals {
+    goals: Array<Goal>
+}
+
 export interface Goal {
     goalNeededResources: number,
     goalDescription: string
