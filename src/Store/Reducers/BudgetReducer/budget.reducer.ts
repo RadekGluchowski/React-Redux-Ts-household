@@ -1,16 +1,13 @@
 import { ADD_TO_BUDGET, BudgetActions, SUBTRACT_FROM_BUDGET } from "../../Actions/BudgetActions/budget.actions"
 import produce, { Draft } from 'immer';
-
-export interface BudgetState {
-    resources: number
-}
+import { Budget } from "../../../interfaces/budget.interface";
 
 const initialState = {
     resources: 0
 }
 
-export const budgetReducer = (state: BudgetState = initialState, action: BudgetActions) => {
-    return produce(state, (draft: Draft<BudgetState>) => {
+export const budgetReducer = (state: Budget = initialState, action: BudgetActions) => {
+    return produce(state, (draft: Draft<Budget>) => {
         switch (action.type) {
             case ADD_TO_BUDGET:
                 draft.resources += action.payload;
