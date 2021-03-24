@@ -1,15 +1,14 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Budget } from "../../interfaces/budget.interface";
 import { subtractFromBudget } from "../../Store/Actions/BudgetActions/budget.actions";
 import { addInvestment } from "../../Store/Actions/InvestmentActions/investment.actions";
-import { BudgetState } from "../../Store/Reducers/BudgetReducer/budget.reducer";
 import { AppState } from "../../Store/Reducers/root-reducer";
+import { selectBudget } from "../../Store/Selectors/Selectors";
 import { CreateInvestmentForm } from "./Form/CreateInvestmentForm";
 
 function Investment() {
-  const resources = useSelector<AppState, BudgetState["resources"]>(
-    (state) => state.budgetReducer.resources
-  );
+  const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
 
   const dispatch = useDispatch();
 

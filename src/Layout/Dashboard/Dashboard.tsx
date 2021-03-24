@@ -1,17 +1,16 @@
 import { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { InputWithButton } from "../../Components/Inputs/InputWithButton";
+import { Budget } from "../../interfaces/budget.interface";
 import {
   addToBudget,
   subtractFromBudget,
 } from "../../Store/Actions/BudgetActions/budget.actions";
-import { BudgetState } from "../../Store/Reducers/BudgetReducer/budget.reducer";
 import { AppState } from "../../Store/Reducers/root-reducer";
+import { selectBudget } from "../../Store/Selectors/Selectors";
 
 function Dashboard() {
-  const resources = useSelector<AppState, BudgetState["resources"]>(
-    (state) => state.budgetReducer.resources
-  );
+  const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
 
   const dispatch = useDispatch();
 

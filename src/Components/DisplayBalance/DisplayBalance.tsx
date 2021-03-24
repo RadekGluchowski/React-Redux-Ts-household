@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
-import { BudgetState } from "../../Store/Reducers/BudgetReducer/budget.reducer";
+import { Budget } from "../../interfaces/budget.interface";
 import { AppState } from "../../Store/Reducers/root-reducer";
+import { selectBudget } from "../../Store/Selectors/Selectors";
 
 function DisplayBalance() {
-  const resources = useSelector<AppState, BudgetState["resources"]>(
-    (state) => state.budgetReducer.resources
-  );
+  const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
 
   return (
     <div>

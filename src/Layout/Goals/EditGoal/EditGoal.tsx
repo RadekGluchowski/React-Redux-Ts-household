@@ -2,13 +2,14 @@ import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { InputWithButton } from "../../../Components/Inputs/InputWithButton";
+import { Budget } from "../../../interfaces/budget.interface";
 import { subtractFromBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
 import {
   chargeGoal,
   doneGoal,
 } from "../../../Store/Actions/GoalsActions/goals.actions";
-import { BudgetState } from "../../../Store/Reducers/BudgetReducer/budget.reducer";
 import { AppState } from "../../../Store/Reducers/root-reducer";
+import { selectBudget } from "../../../Store/Selectors/Selectors";
 import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
 
 interface EditGoalProps {
@@ -20,9 +21,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
   goalToEdit,
   setGoalToEdit,
 }) => {
-  const resources = useSelector<AppState, BudgetState["resources"]>(
-    (state) => state.budgetReducer.resources
-  );
+  const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
   const [isModalOpen, setModal] = useState(false);
   const dispatch = useDispatch();
 
