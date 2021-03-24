@@ -11,6 +11,11 @@ import {
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { selectBudget } from "../../../Store/Selectors/Selectors";
 import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
+import { EDIT_GOAL } from "../Assets/constants";
+import {
+  NO_RESOURCES_ALERT_MSG,
+  UNDEFINED_STRING,
+} from "../../../Assets/globalConstants";
 
 interface EditGoalProps {
   goalToEdit: any;
@@ -26,7 +31,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    typeof goalToEdit !== "undefined" ? setModal(true) : setModal(false);
+    typeof goalToEdit !== UNDEFINED_STRING ? setModal(true) : setModal(false);
   }, [goalToEdit]);
 
   const handleClosePopup = useCallback(() => {
@@ -39,7 +44,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
       dispatch(subtractFromBudget(goalToEdit.goal.goalNeededResources));
       setGoalToEdit(undefined);
     } else {
-      alert("You don't have money for this operation!");
+      alert(NO_RESOURCES_ALERT_MSG);
     }
   }, [dispatch, goalToEdit, resources, setGoalToEdit]);
 
@@ -54,7 +59,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
         }
         setGoalToEdit(undefined);
       } else {
-        alert("You don't have money for this operation!");
+        alert(NO_RESOURCES_ALERT_MSG);
       }
     },
     [dispatch, goalToEdit, handleDoneGoal, resources, setGoalToEdit]
@@ -66,23 +71,23 @@ export const EditGoal: React.FC<EditGoalProps> = ({
         <Modal
           isOpen={isModalOpen}
           onRequestClose={handleClosePopup}
-          contentLabel="Edit Goal"
+          contentLabel={EDIT_GOAL.MODAL_CONTENT_LABEL}
         >
-          {typeof goalToEdit !== "undefined" ? (
+          {typeof goalToEdit !== UNDEFINED_STRING ? (
             <DisplayGoals
               goalDescription={goalToEdit.goal.goalDescription}
               goalNeededResources={goalToEdit.goal.goalNeededResources}
             />
           ) : null}
-          <button onClick={handleDoneGoal}> Done Goal </button>
+          <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
           <InputWithButton
             onButtonClick={handleChargeGoal}
-            buttonText={"Spend on goal"}
-            inputType={"number"}
-            inputPlaceHolder={"150"}
-            inputName={"Spend on goal"}
+            buttonText={EDIT_GOAL.CHARGE_BTN.BUTTON_TEXT}
+            inputType={EDIT_GOAL.CHARGE_BTN.INPUT_TYPE}
+            inputPlaceHolder={EDIT_GOAL.CHARGE_BTN.INPUT_PLACEHOLDER}
+            inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
           />
-          <button onClick={handleClosePopup}>close</button>
+          <button onClick={handleClosePopup}>{EDIT_GOAL.CLOSE}</button>
         </Modal>
       </div>
     </>
