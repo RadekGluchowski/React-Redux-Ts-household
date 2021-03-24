@@ -2,22 +2,21 @@ import { ADD_INVESTMENT, InvestmentActions, DONE_INVESTMENT } from "../../Action
 import produce, { Draft } from 'immer';
 import { Investment } from "../../../interfaces/investment.interface";
 
-export interface InvestmentState {
-    investments: Array<object>
-}
-
 const initialState = {
-    investments: []
+    typeOfInvestment: '',
+    investmentAmount: 0
 }
 
-export const investmentReducer = (state: InvestmentState = initialState, action: InvestmentActions) => {
-    return produce(state, (draft: Draft<InvestmentState>) => {
+export const investmentReducer = (state: Investment = initialState, action: InvestmentActions) => {
+    return produce(state, (draft: Draft<Investment>) => {
         switch (action.type) {
             case ADD_INVESTMENT:
-                draft.investments = [...draft.investments, action.payload];
+                draft.typeOfInvestment = action.payload.typeOfInvestment;
+                draft.investmentAmount = action.payload.investmentAmount;
                 break;
             case DONE_INVESTMENT:
-                draft.investments = draft.investments.filter((investment: Investment,) => investment.id !== action.payload.id);
+                draft.typeOfInvestment = ''
+                draft.investmentAmount = 0
                 break;
             default:
                 return draft;

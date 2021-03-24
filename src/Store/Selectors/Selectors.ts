@@ -1,7 +1,7 @@
 import { createSelector } from "reselect"
 import { Budget } from "../../interfaces/budget.interface";
-import { GoalsState } from "../Reducers/GoalsReducer/goals.reducer";
-import { InvestmentState } from "../Reducers/InvestmentReducer/investment.reducer";
+import { Goals } from "../../interfaces/goal.interface";
+import { Investment } from "../../interfaces/investment.interface";
 import { AppState } from "../Reducers/root-reducer";
 
 const selectGoalsState = (state: AppState) => state.goalReducer;
@@ -10,7 +10,7 @@ const selectInvestmentState = (state: AppState) => state.investmentReducer;
 
 export const selectGoals = createSelector(
     selectGoalsState,
-    (state: GoalsState) => state.goals
+    (state: Goals) => state.goals
 )
 
 export const selectBudget = createSelector(
@@ -20,5 +20,5 @@ export const selectBudget = createSelector(
 
 export const selectInvestment = createSelector(
     selectInvestmentState,
-    (state: InvestmentState) => state
+    (state: Investment) => state
 )

@@ -1,17 +1,13 @@
 import { ADD_GOAL, GoalsActions, DONE_GOAL, CHARGE_GOAL } from "../../Actions/GoalsActions/goals.actions"
 import produce, { Draft } from 'immer';
-import { Goal } from "../../../interfaces/goal.interface";
-
-export interface GoalsState {
-    goals: Goal[]
-}
+import { Goals } from "../../../interfaces/goal.interface";
 
 const initialState = {
     goals: []
 }
 
-export const goalReducer = (state: GoalsState = initialState, action: GoalsActions) => {
-    return produce(state, (draft: Draft<GoalsState>) => {
+export const goalReducer = (state: Goals = initialState, action: GoalsActions) => {
+    return produce(state, (draft: Draft<Goals>) => {
         switch (action.type) {
             case ADD_GOAL:
                 draft.goals = [...draft.goals, action.payload];

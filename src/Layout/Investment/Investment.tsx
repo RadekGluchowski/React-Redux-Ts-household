@@ -14,9 +14,9 @@ function Investment() {
 
   const runInvestment = useCallback(
     (investment) => {
-      if (resources >= investment.values.investmentAmount) {
+      if (resources >= investment.investmentAmount) {
         dispatch(addInvestment(investment));
-        dispatch(subtractFromBudget(investment.values.investmentAmount));
+        dispatch(subtractFromBudget(investment.investmentAmount));
       } else {
         alert("You don't have money for this operation!");
       }

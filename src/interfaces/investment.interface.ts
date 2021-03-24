@@ -1,10 +1,5 @@
-export interface Values {
+export interface Investment {
     typeOfInvestment: string,
     investmentAmount: number
-}
-
-export interface Investment {
-    id?: string;
-    values?: Values;
-  }
+}  
   

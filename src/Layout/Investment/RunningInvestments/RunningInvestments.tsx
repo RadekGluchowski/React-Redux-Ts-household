@@ -1,16 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { doneInvestment } from "../../../Store/Actions/InvestmentActions/investment.actions";
-import { InvestmentState } from "../../../Store/Reducers/InvestmentReducer/investment.reducer";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import Countdown from "react-countdown";
 import { useCallback } from "react";
 import { addToBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
+import { selectInvestment } from "../../../Store/Selectors/Selectors";
 import { Investment } from "../../../interfaces/investment.interface";
 
 export const RunningInvestments = () => {
-  const investments = useSelector<AppState, InvestmentState["investments"]>(
-    (state) => state.investmentReducer.investments
-  );
+  const investment = useSelector<AppState, Investment>(selectInvestment);
+
   const dispatch = useDispatch();
 
   const convertTypeOfInvestmentToTimeInMs = (
@@ -27,21 +26,18 @@ export const RunningInvestments = () => {
   };
 
   const countIncomeAfterInvestment = (investment: Investment) => {
-    switch (investment?.values?.typeOfInvestment) {
+    switch (investment.typeOfInvestment) {
       case "long term":
         return (
-          investment.values.investmentAmount +
-          (7 / 100) * investment.values.investmentAmount
+          investment.investmentAmount + (7 / 100) * investment.investmentAmount
         );
       case "midium term":
         return (
-          investment.values.investmentAmount +
-          (4 / 100) * investment.values.investmentAmount
+          investment.investmentAmount + (4 / 100) * investment.investmentAmount
         );
       case "short term":
         return (
-          investment.values.investmentAmount +
-          (2 / 100) * investment.values.investmentAmount
+          investment.investmentAmount + (2 / 100) * investment.investmentAmount
         );
       default:
         return 0;
@@ -58,24 +54,17 @@ export const RunningInvestments = () => {
 
   return (
     <div>
-      {investments.map((investmentToRun: Investment) => (
-        <div key={investmentToRun.id}>
-          <div>
-            {investmentToRun.values?.typeOfInvestment} Invested:{" "}
-            {investmentToRun.values?.investmentAmount}
-          </div>
-          <Countdown
-            date={
-              Date.now() +
-              convertTypeOfInvestmentToTimeInMs(
-                investmentToRun.values?.typeOfInvestment
-              )
-            }
-            // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
-            onComplete={() => handleonComplete(investmentToRun)}
-          />
-        </div>
-      ))}
+      <div>
+        {investment.typeOfInvestment} Invested: {investment.investmentAmount}
+      </div>
+      <Countdown
+        date={
+          Date.now() +
+          convertTypeOfInvestmentToTimeInMs(investment.typeOfInvestment)
+        }
+        // eslint-disable-next-line react-perf/jsx-no-new-function-as-prop
+        onComplete={() => handleonComplete(investment)}
+      />
     </div>
   );
 };
