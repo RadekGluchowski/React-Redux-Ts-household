@@ -5,11 +5,9 @@ import { goalReducer } from './GoalsReducer/goals.reducer';
 import { investmentReducer } from './InvestmentReducer/investment.reducer';
 
 export const rootReducer = combineReducers({
-    budgetReducer,
-    goalReducer,
-    investmentReducer
+    budget: budgetReducer,
+    goals: goalReducer,
+    investment: investmentReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
-
-//   budget: budgetReducer,

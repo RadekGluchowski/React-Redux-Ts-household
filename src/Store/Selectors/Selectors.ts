@@ -4,9 +4,9 @@ import { Goals } from "../../interfaces/goal.interface";
 import { Investment } from "../../interfaces/investment.interface";
 import { AppState } from "../Reducers/root-reducer";
 
-const selectGoalsState = (state: AppState) => state.goalReducer;
-const selectBudgetState = (state: AppState) => state.budgetReducer;
-const selectInvestmentState = (state: AppState) => state.investmentReducer;
+const selectGoalsState = (state: AppState) => state.goals;
+const selectBudgetState = (state: AppState) => state.budget;
+const selectInvestmentState = (state: AppState) => state.investment;
 
 export const selectGoals = createSelector(
     selectGoalsState,
