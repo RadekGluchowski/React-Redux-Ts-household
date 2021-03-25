@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { Investment } from "../../../interfaces/investment.interface";
 import { selectInvestment } from "../../../Store/Selectors/Selectors";
-import { CREATE_INVESTMENT_FORM } from "../Assets/constants";
+import {
+  CREATE_INVESTMENT_FORM,
+  TYPE_OF_INVESTMENTS,
+  ZERO,
+} from "../Assets/constants";
 
 interface CreateInvestmentFormProps {
   runInvestment(investment: object): void;
@@ -15,8 +19,8 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
 }) => {
   const investment = useSelector<AppState, Investment>(selectInvestment);
   const [initalValues] = useState<Investment>({
-    investmentAmount: CREATE_INVESTMENT_FORM.INVESTMENT_AMOUNT_BASIC,
-    typeOfInvestment: CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.MIDIUM_TERM,
+    investmentAmount: ZERO,
+    typeOfInvestment: TYPE_OF_INVESTMENTS.MIDIUM_TERM,
   });
 
   const handleOnSubmit = useCallback(
@@ -39,19 +43,19 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
             name={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_NAME}
           >
             <option
-              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.SHORT_TERM}
+              value={TYPE_OF_INVESTMENTS.SHORT_TERM}
               title={CREATE_INVESTMENT_FORM.SHORT_TERM_TITLE}
             >
               {CREATE_INVESTMENT_FORM.SHORT_TERM_TEXT}
             </option>
             <option
-              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.MIDIUM_TERM}
+              value={TYPE_OF_INVESTMENTS.MIDIUM_TERM}
               title={CREATE_INVESTMENT_FORM.MIDIUM_TERM_TITLE}
             >
               {CREATE_INVESTMENT_FORM.MIDIUM_TERM_TEXT}
             </option>
             <option
-              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.LONG_TERM}
+              value={TYPE_OF_INVESTMENTS.LONG_TERM}
               title={CREATE_INVESTMENT_FORM.LONG_TERM_TITLE}
             >
               {CREATE_INVESTMENT_FORM.LONG_TERM_TEXT}

@@ -6,6 +6,11 @@ import { useCallback } from "react";
 import { addToBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
 import { selectInvestment } from "../../../Store/Selectors/Selectors";
 import { Investment } from "../../../interfaces/investment.interface";
+import {
+  TYPE_OF_INVESTMENTS,
+  RUNNING_INVESTMENT,
+  ZERO,
+} from "../Assets/constants";
 
 export const RunningInvestments = () => {
   const investment = useSelector<AppState, Investment>(selectInvestment);
@@ -16,31 +21,31 @@ export const RunningInvestments = () => {
     typeOfInvestment: string | undefined
   ) => {
     switch (typeOfInvestment) {
-      case "long term":
-        return 60000;
-      case "midium term":
-        return 40000;
+      case TYPE_OF_INVESTMENTS.LONG_TERM:
+        return RUNNING_INVESTMENT.LONG_TERM_TIME_IN_MS;
+      case TYPE_OF_INVESTMENTS.MIDIUM_TERM:
+        return RUNNING_INVESTMENT.MIDIUM_TERM_TIME_IN_MS;
       default:
-        return 20000;
+        return RUNNING_INVESTMENT.SHORT_TERM_TIME_IN_MS;
     }
   };
 
   const countIncomeAfterInvestment = (investment: Investment) => {
     switch (investment.typeOfInvestment) {
-      case "long term":
+      case TYPE_OF_INVESTMENTS.LONG_TERM:
         return (
           investment.investmentAmount + (7 / 100) * investment.investmentAmount
         );
-      case "midium term":
+      case TYPE_OF_INVESTMENTS.MIDIUM_TERM:
         return (
           investment.investmentAmount + (4 / 100) * investment.investmentAmount
         );
-      case "short term":
+      case TYPE_OF_INVESTMENTS.SHORT_TERM:
         return (
           investment.investmentAmount + (2 / 100) * investment.investmentAmount
         );
       default:
-        return 0;
+        return ZERO;
     }
   };
 
@@ -57,7 +62,7 @@ export const RunningInvestments = () => {
       {investment.typeOfInvestment ? (
         <>
           <div>
-            {investment.typeOfInvestment} Invested:{" "}
+            {investment.typeOfInvestment} {RUNNING_INVESTMENT.INVESTED_TEXT}:{" "}
             {investment.investmentAmount}
           </div>
           <Countdown
