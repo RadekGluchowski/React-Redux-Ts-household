@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { Investment } from "../../../interfaces/investment.interface";
 import { selectInvestment } from "../../../Store/Selectors/Selectors";
+import { CREATE_INVESTMENT_FORM } from "../Assets/constants";
 
 interface CreateInvestmentFormProps {
   runInvestment(investment: object): void;
@@ -14,8 +15,8 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
 }) => {
   const investment = useSelector<AppState, Investment>(selectInvestment);
   const [initalValues] = useState<Investment>({
-    investmentAmount: 0,
-    typeOfInvestment: "midium term",
+    investmentAmount: CREATE_INVESTMENT_FORM.INVESTMENT_AMOUNT_BASIC,
+    typeOfInvestment: CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.MIDIUM_TERM,
   });
 
   const handleOnSubmit = useCallback(
@@ -29,37 +30,41 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
 
   return (
     <div>
-      <h1>Create Investment Form</h1>
+      <h1>{CREATE_INVESTMENT_FORM.CREATE_FORM_HEADER_TEXT}</h1>
       <Formik initialValues={initalValues} onSubmit={handleOnSubmit}>
         <Form>
-          <Field as="select" id="typeOfInvestment" name="typeOfInvestment">
+          <Field
+            as={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_TYPE}
+            id={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_ID}
+            name={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_NAME}
+          >
             <option
-              value="short term"
-              title="short term investment multiplaying amount by 2% per 2 mins"
+              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.SHORT_TERM}
+              title={CREATE_INVESTMENT_FORM.SHORT_TERM_TITLE}
             >
-              Short
+              {CREATE_INVESTMENT_FORM.SHORT_TERM_TEXT}
             </option>
             <option
-              value="midium term"
-              title="midium term investment multiplaying amount by 4% per 4 mins"
+              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.MIDIUM_TERM}
+              title={CREATE_INVESTMENT_FORM.MIDIUM_TERM_TITLE}
             >
-              Midium
+              {CREATE_INVESTMENT_FORM.MIDIUM_TERM_TEXT}
             </option>
             <option
-              value="long term"
-              title="long term investment multiplaying amount by 7% per 6 mins"
+              value={CREATE_INVESTMENT_FORM.TYPE_OF_INVESTMENTS.LONG_TERM}
+              title={CREATE_INVESTMENT_FORM.LONG_TERM_TITLE}
             >
-              Long
+              {CREATE_INVESTMENT_FORM.LONG_TERM_TEXT}
             </option>
           </Field>
           <Field
-            id="investmentAmount"
-            name="investmentAmount"
-            placeholder="Amount"
-            type="number"
+            id={CREATE_INVESTMENT_FORM.FORMIK.AMOUNT_FIELD_ID}
+            name={CREATE_INVESTMENT_FORM.FORMIK.AMOUNT_FIELD_NAME}
+            placeholder={CREATE_INVESTMENT_FORM.FORMIK.AMOUNT_FIELD_PLACEHOLDER}
+            type={CREATE_INVESTMENT_FORM.FORMIK.AMOUNT_FIELD_TYPE}
           />
           <button disabled={!!investment.typeOfInvestment} type="submit">
-            Submit
+            {CREATE_INVESTMENT_FORM.FORMIK.BUTTON_TEXT}
           </button>
         </Form>
       </Formik>
