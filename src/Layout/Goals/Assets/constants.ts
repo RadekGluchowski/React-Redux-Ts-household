@@ -9,3 +9,18 @@ export const EDIT_GOAL = {
     },
     CLOSE: "close"
 }
+
+export const CREATE_GOAL_FORM = {
+    FORMIK: {
+        LABEL_HTML_FOR: "goalDescription",
+        GOAL: "Goal",
+        DESCRIPTION_FIELD_ID: "goalDescription",
+        DESCRIPTION_FIELD_NAME: "goalDescription",
+        DESCRIPTION_FIELD_PLACEHOLDER: "Goal to achieve",
+        RESOURCES_FIELD_ID: "goalNeededResources",
+        RESOURCES_FIELD_TYPE: "number",
+        RESOURCES_FIELD_NAME: "goalNeededResources",
+        RESOURCES_FIELD_PLACEHOLDER: "Needed Resources",
+        BUTTON_TEXT: "Submit"
+    }
+}
