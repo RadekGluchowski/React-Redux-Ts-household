@@ -6,6 +6,7 @@ import { addInvestment } from "../../Store/Actions/InvestmentActions/investment.
 import { AppState } from "../../Store/Reducers/root-reducer";
 import { selectBudget } from "../../Store/Selectors/Selectors";
 import { CreateInvestmentForm } from "./Form/CreateInvestmentForm";
+import { NO_RESOURCES_ALERT_MSG } from "../../Assets/globalConstants";
 
 function Investment() {
   const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
@@ -18,7 +19,7 @@ function Investment() {
         dispatch(addInvestment(investment));
         dispatch(subtractFromBudget(investment.investmentAmount));
       } else {
-        alert("You don't have money for this operation!");
+        alert(NO_RESOURCES_ALERT_MSG);
       }
     },
     [dispatch, resources]
