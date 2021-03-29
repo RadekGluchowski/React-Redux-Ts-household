@@ -27,5 +27,5 @@ export const selectInvestment = createSelector(
 
 export const selectHistoryEvents = createSelector(
     selectHistoryState,
-    (state: History) => state
+    (state: History) => state.events
 )
