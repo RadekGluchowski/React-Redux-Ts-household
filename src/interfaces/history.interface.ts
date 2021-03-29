@@ -5,5 +5,5 @@ export interface History {
 export interface Event {
     type: string,
     payload: any,
-    time: object,
+    time: Date,
 }
