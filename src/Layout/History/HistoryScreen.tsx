@@ -33,7 +33,7 @@ function HistoryScreen() {
   }
 
   const renderWithCheckingFields = (key: string, payload: any) => {
-    return <div> {checkFieldKey(key)}: {typeof payload[key] === "object" ? null : payload[key]} </div>
+    return <div> {checkFieldKey(key)}: {payload[key]} </div>
   }
 
   const checkFieldKey = (key: string) => {
