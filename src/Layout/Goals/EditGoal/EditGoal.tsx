@@ -72,6 +72,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
           isOpen={isModalOpen}
           onRequestClose={handleClosePopup}
           contentLabel={EDIT_GOAL.MODAL_CONTENT_LABEL}
+          appElement={document.getElementById('root') as HTMLElement}
         >
           {typeof goalToEdit !== UNDEFINED_STRING ? (
             <DisplayGoals
