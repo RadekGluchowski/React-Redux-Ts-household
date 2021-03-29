@@ -8,6 +8,7 @@ export default function TopNavBar() {
         <Link to="/">Dashboard </Link>
         <Link to="/Goals">Goals</Link>
         <Link to="/Investment"> Investment</Link>
+        <Link to="/HistoryScreen"> History </Link>
       </nav>
       <DisplayBalance />
     </div>

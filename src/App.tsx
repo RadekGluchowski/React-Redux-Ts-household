@@ -7,6 +7,7 @@ import TopNavBar from "./Components/TopNavBar/TopNavBar";
 import Footer from "./Components/Footer/Footer";
 import Investment from "./Layout/Investment/Investment";
 import { RunningInvestments } from "./Layout/Investment/RunningInvestments/RunningInvestments";
+import HistoryScreen from "./Layout/History/HistoryScreen";
 
 class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ class App extends React.Component {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/Goals" component={Goals} />
             <Route exact path="/Investment" component={Investment} />
+            <Route exact path="/HistoryScreen" component={HistoryScreen} />
           </Switch>
           <Footer />
         </div>
