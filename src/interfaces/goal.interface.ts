@@ -9,10 +9,7 @@ export interface Goal {
 
 export interface GoalToEdit {
     index: number,
-    goal: {
-        goalNeededResources: number,
-        goalDescription: string
-    }
+    goal: Goal
 }
 
 export interface ChargeGoal {
