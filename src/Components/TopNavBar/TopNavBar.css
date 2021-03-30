@@ -16,20 +16,80 @@ header {
     padding: 30px 10%;
 }
 
-.nav__links__active { 
+.nav__links {
     list-style: none;
-
 }
 
-.nav__links__active li {
+.nav__links li {
     display: inline-block;
     padding: 0 20px;
 }
 
-.nav__links__active li a {
+.nav__links li a {
     transition: all 0.3s ease 0s;
 }
 
-.nav__links__active li a:hover {
-   color: #0088a9
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+.menu-bars {
+    margin-left: 2rem;
+    font-size: 16px;
+    background: none;
+}
+
+.nav-menu {
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: 850ms;
+}
+
+.nav-menu.active {
+    right: 0%;
+    transition: 350ms;
+}
+
+.nav-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 0 8px 16px;
+    list-style: none;
+    height: 60px;
+}
+
+.nav-text a {
+    text-decoration: none;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-text a:hover {
+    background-color: #0088a9;
+}
+
+.navbar-toggle {
+    background-color: #24252a;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar-toggle a {
+    transition: all 0.3s ease 0s;
+}
+
+.navbar-toggle a:hover {
+    background-color: #0088a9;
 }
