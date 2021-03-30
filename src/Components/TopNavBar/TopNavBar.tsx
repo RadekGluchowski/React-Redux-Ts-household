@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import DisplayBalance from "../DisplayBalance/DisplayBalance";
+import './TopNavBar.css'
 
 export default function TopNavBar() {
   return (
-    <div>
-      <nav>
-        <Link to="/">Dashboard </Link>
-        <Link to="/Goals">Goals</Link>
-        <Link to="/Investment"> Investment</Link>
-        <Link to="/HistoryScreen"> History </Link>
-      </nav>
+    <header>
       <DisplayBalance />
-    </div>
+      <nav>
+        <ul className="nav__links">
+          <li> <Link to="/">Dashboard </Link> </li>
+          <li> <Link to="/Goals">Goals</Link></li>
+          <li> <Link to="/Investment"> Investment</Link></li>
+          <li> <Link to="/HistoryScreen"> History </Link></li>
+        </ul>
+      </nav>
+    </header>
   );
 }

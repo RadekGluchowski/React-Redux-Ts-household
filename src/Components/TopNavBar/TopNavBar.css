@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+li,
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.nav__links__active { 
+    list-style: none;
+
+}
+
+.nav__links__active li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav__links__active li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links__active li a:hover {
+   color: #0088a9
+}
