@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
+import './InputWithButton.css'
 
 interface InputWithButtonProps {
   onButtonClick(resources: number): void;
@@ -27,7 +28,7 @@ export const InputWithButton: React.FC<InputWithButtonProps> = ({
   }, [inputValue, onButtonClick]);
 
   return (
-    <div>
+    <div className="input-with-button">
       <input
         onChange={updateInput}
         value={inputValue}
