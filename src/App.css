@@ -1,4 +1,11 @@
 .app {
-    height: 100vh;
-    background-color: #24252A;
-  }
+  height: 100%;
+  min-height: 100vh;
+  background-color: #24252a;
+  display: flex;
+  flex-flow: column;
+}
+
+.app-container {
+  flex: 0.85;
+}

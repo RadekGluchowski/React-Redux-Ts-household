@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.nav-container {
+    flex: 0.10;
+}
+
 li,
 a {
     text-decoration: none;
@@ -33,7 +37,7 @@ header {
     color: #0088a9;
 }
 
-.menu-bars {
+.nav-menu__bars {
     margin-left: 2rem;
     font-size: 16px;
     background: none;
@@ -78,7 +82,7 @@ header {
     background-color: #0088a9;
 }
 
-.navbar-toggle {
+.nav-menu__toggle {
     background-color: #24252a;
     height: 80px;
     display: flex;
@@ -86,10 +90,10 @@ header {
     align-items: center;
 }
 
-.navbar-toggle a {
+.nav-menu__toggle a {
     transition: all 0.3s ease 0s;
 }
 
-.navbar-toggle a:hover {
+.nav-menu__toggle a:hover {
     background-color: #0088a9;
 }

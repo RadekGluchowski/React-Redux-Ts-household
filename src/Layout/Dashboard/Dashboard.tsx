@@ -10,6 +10,8 @@ import { AppState } from "../../Store/Reducers/root-reducer";
 import { selectBudget } from "../../Store/Selectors/Selectors";
 import * as constants from "./Assets/constants";
 import { NO_RESOURCES_ALERT_MSG } from "../../Assets/globalConstants";
+import { RunningInvestments } from "../Investment/RunningInvestments/RunningInvestments";
+import './Dashboard.css'
 
 function Dashboard() {
   const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
@@ -39,7 +41,7 @@ function Dashboard() {
   const { ADD_BUTTON, SUBTRACT_BUTTON } = constants.DASHBOARD_BUTTONS;
 
   return (
-    <div>
+    <div className="dashboard-container">
       <InputWithButton
         onButtonClick={onAddToBudget}
         buttonText={ADD_BUTTON.BUTTON_TEXT}
@@ -54,6 +56,7 @@ function Dashboard() {
         inputType={SUBTRACT_BUTTON.INPUT_TYPE}
         inputPlaceHolder={SUBTRACT_BUTTON.INPUT_PLACEHOLDER}
       />
+      <RunningInvestments />
     </div>
   );
 }

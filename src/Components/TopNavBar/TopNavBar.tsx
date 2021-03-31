@@ -16,7 +16,7 @@ export default function TopNavBar() {
   }, [sideMenu]);
 
   return (
-    <header>
+    <header className="nav-container">
       <DisplayBalance />
       {windowSize.width < 800 ?
         <div>
@@ -26,9 +26,9 @@ export default function TopNavBar() {
             </Link>
           </div>
           <nav className={sideMenu ? "nav-menu active" : "nav-menu"}>
-            <ul className="nav-menu-items">
-              <li className="navbar-toggle">
-                <Link to="#" className="menu-bars" >
+            <ul>
+              <li className="nav-menu__toggle">
+                <Link to="#" className="nav-menu__bars" >
                   <AiOutlineClose onClick={showSideMenu} />
                 </Link>
               </li>
