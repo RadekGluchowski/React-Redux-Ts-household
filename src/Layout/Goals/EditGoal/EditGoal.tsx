@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import { InputWithButton } from "../../../Components/Inputs/InputWithButton";
+import { InputWithButton } from "../../../Components/Inputs/InputWithButton/InputWithButton";
 import { Budget } from "../../../interfaces/budget.interface";
 import { subtractFromBudget } from "../../../Store/Actions/BudgetActions/budget.actions";
 import {
