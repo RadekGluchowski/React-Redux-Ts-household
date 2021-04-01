@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { InputWithButton } from "../../../Components/Inputs/InputWithButton/InputWithButton";
 import { Budget } from "../../../interfaces/budget.interface";
@@ -16,6 +15,8 @@ import {
   NO_RESOURCES_ALERT_MSG,
   UNDEFINED_STRING,
 } from "../../../Assets/globalConstants";
+import { ModalPopup } from "../../../Components/Popup/ModalPopup";
+import { smallPopup } from "../../../Components/Popup/DefaultPopupStyles/DefaultPopupStyles";
 
 interface EditGoalProps {
   goalToEdit: any;
@@ -68,11 +69,11 @@ export const EditGoal: React.FC<EditGoalProps> = ({
   return (
     <>
       <div>
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={handleClosePopup}
+        <ModalPopup
+          isModalOpen={isModalOpen}
+          handleClosePopup={handleClosePopup}
           contentLabel={EDIT_GOAL.MODAL_CONTENT_LABEL}
-          appElement={document.getElementById('root') as HTMLElement}
+          customStyles={smallPopup}
         >
           {typeof goalToEdit !== UNDEFINED_STRING ? (
             <DisplayGoals
@@ -89,7 +90,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
             inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
           />
           <button onClick={handleClosePopup}>{EDIT_GOAL.CLOSE}</button>
-        </Modal>
+        </ModalPopup>
       </div>
     </>
   );
