@@ -20,7 +20,7 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
   const investment = useSelector<AppState, Investment>(selectInvestment);
   const [initialValues] = useState<Investment>({
     investmentAmount: ZERO,
-    typeOfInvestment: TYPE_OF_INVESTMENTS.MIDIUM_TERM,
+    typeOfInvestment: TYPE_OF_INVESTMENTS.MEDIUM_TERM,
   });
 
   const handleOnSubmit = useCallback(
@@ -49,14 +49,14 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
               {CREATE_INVESTMENT_FORM.SHORT_TERM_TEXT}
             </option>
             <option
-              value={TYPE_OF_INVESTMENTS.MIDIUM_TERM}
-              title={CREATE_INVESTMENT_FORM.MIDIUM_TERM_TITLE}
+                value={TYPE_OF_INVESTMENTS.MEDIUM_TERM}
+                title={CREATE_INVESTMENT_FORM.MEDIUM_TERM_TITLE}
             >
-              {CREATE_INVESTMENT_FORM.MIDIUM_TERM_TEXT}
+              {CREATE_INVESTMENT_FORM.MEDIUM_TERM_TEXT}
             </option>
             <option
-              value={TYPE_OF_INVESTMENTS.LONG_TERM}
-              title={CREATE_INVESTMENT_FORM.LONG_TERM_TITLE}
+                value={TYPE_OF_INVESTMENTS.LONG_TERM}
+                title={CREATE_INVESTMENT_FORM.LONG_TERM_TITLE}
             >
               {CREATE_INVESTMENT_FORM.LONG_TERM_TEXT}
             </option>

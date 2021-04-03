@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import { Link } from "react-router-dom";
+import React, {useCallback, useState} from "react";
+import {Link} from "react-router-dom";
 import DisplayBalance from "../DisplayBalance/DisplayBalance";
 import './TopNavBar.css'
 import { FaBars } from 'react-icons/fa';

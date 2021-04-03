@@ -1,10 +1,10 @@
 export const CREATE_INVESTMENT_FORM = {
     CREATE_FORM_HEADER_TEXT: "Create Investment Form",
-    SHORT_TERM_TITLE: "short term investment multiplaying amount by 2% per 2 mins",
+    SHORT_TERM_TITLE: "short term investment multiplying amount by 2% per 2 mins",
     SHORT_TERM_TEXT: "Short",
-    MIDIUM_TERM_TITLE: "midium term investment multiplaying amount by 4% per 4 mins",
-    MIDIUM_TERM_TEXT: "Midium",
-    LONG_TERM_TITLE: "long term investment multiplaying amount by 7% per 6 mins",
+    MEDIUM_TERM_TITLE: "medium term investment multiplying amount by 4% per 4 mins",
+    MEDIUM_TERM_TEXT: "Medium",
+    LONG_TERM_TITLE: "long term investment multiplying amount by 7% per 6 mins",
     LONG_TERM_TEXT: "Long",
     FORMIK: {
         SELECT_FIELD_TYPE: "select",
@@ -20,7 +20,7 @@ export const CREATE_INVESTMENT_FORM = {
 
 export const RUNNING_INVESTMENT = {
     LONG_TERM_TIME_IN_MS: 60000,
-    MIDIUM_TERM_TIME_IN_MS: 40000,
+    MEDIUM_TERM_TIME_IN_MS: 40000,
     SHORT_TERM_TIME_IN_MS: 20000,
     INVESTED_TEXT: "Invested"
 }
@@ -31,6 +31,6 @@ export const ZERO = 0;
 
 export const TYPE_OF_INVESTMENTS = {
     SHORT_TERM: "short term",
-    MIDIUM_TERM: "midium term",
+    MEDIUM_TERM: "medium term",
     LONG_TERM: "long term"
 }

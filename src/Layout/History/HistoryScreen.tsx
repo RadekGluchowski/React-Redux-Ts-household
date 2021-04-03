@@ -2,7 +2,16 @@ import { useSelector } from "react-redux";
 import { Event, History } from "../../interfaces/history.interface";
 import { AppState } from "../../Store/Reducers/root-reducer";
 import { selectHistoryEvents } from "../../Store/Selectors/Selectors";
-import { OPERATION_TIME_STRING, OPERATIONS_DICTIONARY, TYPES_OF_OPERATIONS, TYPES_OF_FIELDS, FIELDS_DICTIONARY, OPERATION, WITH_DATA } from "./Assets/constants";
+import {
+  OPERATION_TIME_STRING,
+  OPERATIONS_DICTIONARY,
+  TYPES_OF_OPERATIONS,
+  TYPES_OF_FIELDS,
+  FIELDS_DICTIONARY,
+  OPERATION,
+  WITH_DATA
+} from "./Assets/constants";
+import React from "react";
 
 function HistoryScreen() {
   const historyEvents = useSelector<AppState, History["events"]>(
