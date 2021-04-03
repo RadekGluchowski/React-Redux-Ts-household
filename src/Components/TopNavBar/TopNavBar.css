@@ -56,6 +56,7 @@ header {
 .nav-menu.active {
     right: 0%;
     transition: 350ms;
+    background-color: black;
 }
 
 .nav-text {
@@ -83,11 +84,11 @@ header {
 }
 
 .nav-menu__toggle {
-    background-color: #24252a;
     height: 80px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    background-color: black;
 }
 
 .nav-menu__toggle a {
