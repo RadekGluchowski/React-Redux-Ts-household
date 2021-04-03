@@ -18,7 +18,7 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
   runInvestment,
 }) => {
   const investment = useSelector<AppState, Investment>(selectInvestment);
-  const [initalValues] = useState<Investment>({
+  const [initialValues] = useState<Investment>({
     investmentAmount: ZERO,
     typeOfInvestment: TYPE_OF_INVESTMENTS.MIDIUM_TERM,
   });
@@ -27,24 +27,24 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
     (values, actions) => {
       runInvestment(values);
       actions.setSubmitting(false);
-      actions.resetForm(initalValues);
+      actions.resetForm(initialValues);
     },
-    [initalValues, runInvestment]
+      [initialValues, runInvestment]
   );
 
   return (
     <div>
       <h1>{CREATE_INVESTMENT_FORM.CREATE_FORM_HEADER_TEXT}</h1>
-      <Formik initialValues={initalValues} onSubmit={handleOnSubmit}>
+      <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
         <Form>
           <Field
-            as={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_TYPE}
-            id={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_ID}
-            name={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_NAME}
+              as={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_TYPE}
+              id={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_ID}
+              name={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_NAME}
           >
             <option
-              value={TYPE_OF_INVESTMENTS.SHORT_TERM}
-              title={CREATE_INVESTMENT_FORM.SHORT_TERM_TITLE}
+                value={TYPE_OF_INVESTMENTS.SHORT_TERM}
+                title={CREATE_INVESTMENT_FORM.SHORT_TERM_TITLE}
             >
               {CREATE_INVESTMENT_FORM.SHORT_TERM_TEXT}
             </option>
