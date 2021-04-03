@@ -9,6 +9,7 @@ import {
   TYPE_OF_INVESTMENTS,
   ZERO,
 } from "../Assets/constants";
+import './CreateInvestmentForm.css';
 
 interface CreateInvestmentFormProps {
   runInvestment(investment: object): void;
@@ -36,7 +37,7 @@ export const CreateInvestmentForm: React.FC<CreateInvestmentFormProps> = ({
     <div>
       <h1>{CREATE_INVESTMENT_FORM.CREATE_FORM_HEADER_TEXT}</h1>
       <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
-        <Form>
+        <Form className={"create-investment-form"}>
           <Field
               as={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_TYPE}
               id={CREATE_INVESTMENT_FORM.FORMIK.SELECT_FIELD_ID}
