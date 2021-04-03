@@ -12,8 +12,6 @@ export const EDIT_GOAL = {
 
 export const CREATE_GOAL_FORM = {
     FORMIK: {
-        LABEL_HTML_FOR: "goalDescription",
-        GOAL: "Goal",
         DESCRIPTION_FIELD_ID: "goalDescription",
         DESCRIPTION_FIELD_NAME: "goalDescription",
         DESCRIPTION_FIELD_PLACEHOLDER: "Goal to achieve",
