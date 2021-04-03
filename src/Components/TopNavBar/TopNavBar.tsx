@@ -35,7 +35,7 @@ export default function TopNavBar() {
               {SidebarData.map((navElement, index) => {
                 return (
                   <li key={index} className={navElement.cName}>
-                    <Link to={navElement.path}>
+                    <Link to={navElement.path} onClick={showSideMenu}>
                       {navElement.title}
                     </Link>
                   </li>
