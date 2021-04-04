@@ -23,6 +23,7 @@ function Dashboard() {
     const onAddToBudget = useCallback(
         (inputValue) => {
             dispatch(addToBudget(Number(inputValue)));
+            handleClosePopup()
         },
     [dispatch]
   );
@@ -31,8 +32,9 @@ function Dashboard() {
     (inputValue: number) => {
       const resourcesToSubtract = Number(inputValue);
 
-        if (resourcesToSubtract < resources) {
+        if (resourcesToSubtract <= resources) {
             dispatch(subtractFromBudget(Number(resourcesToSubtract)));
+            handleClosePopup()
         } else {
             alert(NO_RESOURCES_ALERT_MSG);
         }
@@ -61,20 +63,22 @@ function Dashboard() {
                 contentLabel={constants.MODAL_ADD_LABEL}
                 customStyles={smallPopup}
             >
-                <InputWithButton
-                    onButtonClick={onAddToBudget}
-                    buttonText={ADD_BUTTON.BUTTON_TEXT}
-                    inputName={ADD_BUTTON.INPUT_NAME}
-                    inputType={ADD_BUTTON.INPUT_TYPE}
-                    inputPlaceHolder={ADD_BUTTON.INPUT_PLACEHOLDER}
-                />
-                <InputWithButton
-                    onButtonClick={onSubtractFromBudget}
-                    buttonText={SUBTRACT_BUTTON.BUTTON_TEXT}
-                    inputName={SUBTRACT_BUTTON.INPUT_NAME}
-                    inputType={SUBTRACT_BUTTON.INPUT_TYPE}
-                    inputPlaceHolder={SUBTRACT_BUTTON.INPUT_PLACEHOLDER}
-                />
+                <div className="input-with-button__wrapper">
+                    <InputWithButton
+                        onButtonClick={onAddToBudget}
+                        buttonText={ADD_BUTTON.BUTTON_TEXT}
+                        inputName={ADD_BUTTON.INPUT_NAME}
+                        inputType={ADD_BUTTON.INPUT_TYPE}
+                        inputPlaceHolder={ADD_BUTTON.INPUT_PLACEHOLDER}
+                    />
+                    <InputWithButton
+                        onButtonClick={onSubtractFromBudget}
+                        buttonText={SUBTRACT_BUTTON.BUTTON_TEXT}
+                        inputName={SUBTRACT_BUTTON.INPUT_NAME}
+                        inputType={SUBTRACT_BUTTON.INPUT_TYPE}
+                        inputPlaceHolder={SUBTRACT_BUTTON.INPUT_PLACEHOLDER}
+                    />
+                </div>
             </ModalPopup>
             <RunningInvestments/>
         </div>

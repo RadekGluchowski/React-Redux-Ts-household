@@ -1,12 +1,12 @@
 export const DASHBOARD_BUTTONS = {
     ADD_BUTTON: {
-        BUTTON_TEXT: "Add Resources",
+        BUTTON_TEXT: "Add",
         INPUT_NAME: "addResources",
         INPUT_TYPE: "number",
         INPUT_PLACEHOLDER: "1504..."
     },
     SUBTRACT_BUTTON: {
-        BUTTON_TEXT: "Subtract Resources",
+        BUTTON_TEXT: "Subtract",
         INPUT_NAME: "subtractResources",
         INPUT_TYPE: "number",
         INPUT_PLACEHOLDER: "150..."
