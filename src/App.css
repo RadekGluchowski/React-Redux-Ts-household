@@ -63,18 +63,6 @@ button {
   transition: background 300ms ease-in-out;
 }
 
-@media screen and (max-width: 800px) {
-  .input-with-button input {
-    width: 50%;
-    margin: auto;
-    height: 20%;
-  }
-
-  .input-with-button {
-    display: flex;
-  }
-
-  .input-with-button button {
-    padding: 0.2em 1em;
-  }
+button:focus {
+  outline: none;
 }

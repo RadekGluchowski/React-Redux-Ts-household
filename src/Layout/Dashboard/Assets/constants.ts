@@ -11,4 +11,7 @@ export const DASHBOARD_BUTTONS = {
         INPUT_TYPE: "number",
         INPUT_PLACEHOLDER: "150..."
     }
-}
+};
+
+export const MODAL_ADD_LABEL = "Budget Operations";
+export const OPERATIONS = "Operations";
