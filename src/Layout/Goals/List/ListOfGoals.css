@@ -1,3 +1,8 @@
-.list-of-goals__label{
+.list-of-goals__label {
     padding: 1rem;
+}
+
+.list-of-goals {
+    display: flex;
+    flex-flow: row;
 }
