@@ -13,8 +13,10 @@ export const DisplayGoals: React.FC<DisplayGoalsProps> = ({
 }) => {
   return (
     <Card>
-      <div> {goalDescription} </div>
-      <div> {goalNeededResources}</div>
+      <div className="goal-info-container">
+        <div>  {goalDescription} </div>
+        <div> {goalNeededResources}</div>
+      </div>
     </Card>
   );
 };
