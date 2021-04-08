@@ -13,5 +13,5 @@ export const DASHBOARD_BUTTONS = {
     }
 };
 
-export const MODAL_ADD_LABEL = "Budget Operations";
+export const MODAL_LABEL = "Budget Operations";
 export const OPERATIONS = "Operations";

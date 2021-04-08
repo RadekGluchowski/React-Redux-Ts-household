@@ -17,15 +17,19 @@ import {smallPopup} from "../../Components/Popup/DefaultPopupStyles/DefaultPopup
 
 function Dashboard() {
     const resources = useSelector<AppState, Budget["resources"]>(selectBudget);
-    const [isModalOpen, setModal] = useState(false);
+    const [isModalOpen, setModal] = useState<boolean>(false);
     const dispatch = useDispatch();
+
+    const handleClosePopup = useCallback(() => {
+        setModal(false)
+    }, []);
 
     const onAddToBudget = useCallback(
         (inputValue) => {
             dispatch(addToBudget(Number(inputValue)));
             handleClosePopup()
         },
-    [dispatch]
+    [dispatch, handleClosePopup]
   );
 
   const onSubtractFromBudget = useCallback(
@@ -39,12 +43,8 @@ function Dashboard() {
             alert(NO_RESOURCES_ALERT_MSG);
         }
     },
-      [dispatch, resources]
+      [dispatch, handleClosePopup, resources]
   );
-
-    const handleClosePopup = useCallback(() => {
-        setModal(false)
-    }, []);
 
     const handleOpenPopup = useCallback(() => {
         setModal(true)
@@ -60,7 +60,7 @@ function Dashboard() {
             <ModalPopup
                 isModalOpen={isModalOpen}
                 handleClosePopup={handleClosePopup}
-                contentLabel={constants.MODAL_ADD_LABEL}
+                contentLabel={constants.MODAL_LABEL}
                 customStyles={smallPopup}
             >
                 <div className="input-with-button__wrapper">
