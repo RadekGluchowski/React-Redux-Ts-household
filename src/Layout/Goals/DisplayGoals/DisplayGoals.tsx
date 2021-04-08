@@ -1,4 +1,6 @@
 import React from "react";
+import { Card } from "../../../Components/Card/Card";
+import './DisplayGoal.css';
 
 interface DisplayGoalsProps {
   goalDescription: string;
@@ -10,9 +12,9 @@ export const DisplayGoals: React.FC<DisplayGoalsProps> = ({
   goalNeededResources,
 }) => {
   return (
-    <>
+    <Card>
       <div> {goalDescription} </div>
       <div> {goalNeededResources}</div>
-    </>
+    </Card>
   );
 };
