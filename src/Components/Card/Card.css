@@ -1,0 +1,16 @@
+.card {
+    background: #4169E1;
+    display: inline-block;
+    height: 4rem;
+    margin: 1rem;
+    position: relative;
+    width: 10rem;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 6px -2px black;
+}
+
+.card:hover{
+    transform: scale(1.15) translateZ(0);
+}
