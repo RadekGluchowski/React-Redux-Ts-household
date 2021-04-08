@@ -25,3 +25,4 @@ export const CREATE_GOAL_FORM = {
 
 export const ADD_GOAL = "Add Goal"
 export const MODAL_ADD_LABEL = "Add Goal"
+export const LIST_OF_GOALS_LABEL = "List of Your Goals"
