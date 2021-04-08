@@ -1,3 +1,10 @@
 .create-goal-form input {
     margin: 0.75rem;
 }
+
+@media screen and (max-width: 800px) {
+    .create-goal-form {
+        display: flex;
+        flex-flow: column;
+    }
+}

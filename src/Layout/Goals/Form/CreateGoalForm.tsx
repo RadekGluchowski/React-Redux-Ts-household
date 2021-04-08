@@ -28,7 +28,6 @@ export const CreateGoalForm: React.FC<GoalsFormProps> = ({ saveGoal }) => {
 
   return (
       <div>
-          <h1>Goals</h1>
           <Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
               <Form className={"create-goal-form"}>
                   <Field
