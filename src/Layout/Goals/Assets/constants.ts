@@ -22,3 +22,6 @@ export const CREATE_GOAL_FORM = {
         BUTTON_TEXT: "Submit"
     }
 }
+
+export const ADD_GOAL = "Add Goal"
+export const MODAL_ADD_LABEL = "Add Goal"
