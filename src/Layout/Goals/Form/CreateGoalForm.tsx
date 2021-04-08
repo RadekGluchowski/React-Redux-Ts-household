@@ -34,6 +34,7 @@ export const CreateGoalForm: React.FC<GoalsFormProps> = ({ saveGoal }) => {
                       id={CREATE_GOAL_FORM.FORMIK.DESCRIPTION_FIELD_ID}
                       name={CREATE_GOAL_FORM.FORMIK.DESCRIPTION_FIELD_NAME}
                       placeholder={CREATE_GOAL_FORM.FORMIK.DESCRIPTION_FIELD_PLACEHOLDER}
+                      maxlength={10}
                   />
                   <Field
                       id={CREATE_GOAL_FORM.FORMIK.RESOURCES_FIELD_ID}
