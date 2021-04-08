@@ -23,7 +23,7 @@ export const ListOfGoals: React.FC<ListOfGoalsProps> = ({
 
   return (
     <>
-      <p className="list-of-goals__label">{LIST_OF_GOALS_LABEL}</p>
+      <p className="list-of-goals__label"> {goals.length ? LIST_OF_GOALS_LABEL : null}</p>
       <div className="list-of-goals">
         {goals.map((goal, index) => (
           <div key={index}>
