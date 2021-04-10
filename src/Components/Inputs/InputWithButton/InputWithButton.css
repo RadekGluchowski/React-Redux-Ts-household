@@ -1,4 +1,9 @@
 @media screen and (max-width: 800px) {
+    .input-with-button {
+        display: flex;
+        flex-flow: column;
+    }
+
     .input-with-button input {
         width: 50%;
         margin: auto;
