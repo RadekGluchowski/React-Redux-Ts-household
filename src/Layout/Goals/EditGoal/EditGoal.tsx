@@ -74,14 +74,16 @@ export const EditGoal: React.FC<EditGoalProps> = ({
           contentLabel={EDIT_GOAL.MODAL_CONTENT_LABEL}
           customStyles={smallPopup}
         >
-          <InputWithButton
-            onButtonClick={handleChargeGoal}
-            buttonText={EDIT_GOAL.CHARGE_BTN.BUTTON_TEXT}
-            inputType={EDIT_GOAL.CHARGE_BTN.INPUT_TYPE}
-            inputPlaceHolder={EDIT_GOAL.CHARGE_BTN.INPUT_PLACEHOLDER}
-            inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
-          />
-          <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
+          <div className="edit-goal-container">
+            <InputWithButton
+              onButtonClick={handleChargeGoal}
+              buttonText={EDIT_GOAL.CHARGE_BTN.BUTTON_TEXT}
+              inputType={EDIT_GOAL.CHARGE_BTN.INPUT_TYPE}
+              inputPlaceHolder={EDIT_GOAL.CHARGE_BTN.INPUT_PLACEHOLDER}
+              inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
+            />
+            <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
+          </div>
         </ModalPopup>
       </div>
     </>
