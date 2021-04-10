@@ -9,7 +9,6 @@ import {
 } from "../../../Store/Actions/GoalsActions/goals.actions";
 import { AppState } from "../../../Store/Reducers/root-reducer";
 import { selectBudget } from "../../../Store/Selectors/Selectors";
-import { DisplayGoals } from "../DisplayGoals/DisplayGoals";
 import { EDIT_GOAL } from "../Assets/constants";
 import {
   NO_RESOURCES_ALERT_MSG,
@@ -75,13 +74,6 @@ export const EditGoal: React.FC<EditGoalProps> = ({
           contentLabel={EDIT_GOAL.MODAL_CONTENT_LABEL}
           customStyles={smallPopup}
         >
-          {typeof goalToEdit !== UNDEFINED_STRING ? (
-            <DisplayGoals
-              goalDescription={goalToEdit.goal.goalDescription}
-              goalNeededResources={goalToEdit.goal.goalNeededResources}
-            />
-          ) : null}
-          <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
           <InputWithButton
             onButtonClick={handleChargeGoal}
             buttonText={EDIT_GOAL.CHARGE_BTN.BUTTON_TEXT}
@@ -89,7 +81,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
             inputPlaceHolder={EDIT_GOAL.CHARGE_BTN.INPUT_PLACEHOLDER}
             inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
           />
-          <button onClick={handleClosePopup}>{EDIT_GOAL.CLOSE}</button>
+          <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
         </ModalPopup>
       </div>
     </>
