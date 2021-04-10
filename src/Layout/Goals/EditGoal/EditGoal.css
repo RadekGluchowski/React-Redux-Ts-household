@@ -1,0 +1,15 @@
+.edit-goal-container {
+    display: flex;
+    flex-flow: column;
+    padding: 0.75rem;
+}
+
+.edit-goal__done {
+    width: 90%;
+}
+
+@media screen and (max-width: 800px) {
+    .edit-goal__done {
+        padding: 0.2em 1em;
+    }
+}

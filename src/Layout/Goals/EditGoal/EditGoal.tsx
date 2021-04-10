@@ -16,6 +16,7 @@ import {
 } from "../../../Assets/globalConstants";
 import { ModalPopup } from "../../../Components/Popup/ModalPopup";
 import { smallPopup } from "../../../Components/Popup/DefaultPopupStyles/DefaultPopupStyles";
+import './EditGoal.css';
 
 interface EditGoalProps {
   goalToEdit: any;
@@ -82,7 +83,7 @@ export const EditGoal: React.FC<EditGoalProps> = ({
               inputPlaceHolder={EDIT_GOAL.CHARGE_BTN.INPUT_PLACEHOLDER}
               inputName={EDIT_GOAL.CHARGE_BTN.INPUT_NAME}
             />
-            <button onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
+            <button className="edit-goal__done" onClick={handleDoneGoal}>{EDIT_GOAL.DONE_GOAL}</button>
           </div>
         </ModalPopup>
       </div>
