@@ -2,7 +2,7 @@ import { createSelector } from "reselect"
 import { Budget } from "../../interfaces/budget.interface";
 import { Goals } from "../../interfaces/goal.interface";
 import { History } from "../../interfaces/history.interface";
-import { Investment } from "../../interfaces/investment.interface";
+import { InvestmentInterface } from "../../interfaces/investment.interface";
 import { AppState } from "../Reducers/root-reducer";
 
 const selectGoalsState = (state: AppState) => state.goals;
@@ -22,7 +22,7 @@ export const selectBudget = createSelector(
 
 export const selectInvestment = createSelector(
     selectInvestmentState,
-    (state: Investment) => state
+    (state: InvestmentInterface) => state
 )
 
 export const selectHistoryEvents = createSelector(
