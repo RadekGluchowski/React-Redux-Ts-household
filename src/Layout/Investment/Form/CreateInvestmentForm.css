@@ -1,3 +1,15 @@
 .create-investment-form input {
     margin: 0.75rem;
 }
+
+.create-investment-form-container {
+    padding: 1rem;
+}
+
+.create-investment-form option {
+    background-color: #24252a;
+}
+
+.create-investment-form select {
+    outline: none;
+}
