@@ -1,0 +1,14 @@
+.circle-progress-bar {
+    width: 200px;
+    height: 200px;
+}
+
+.circle-bar-container {
+    padding: 2rem;
+}
+
+.running-investment-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
