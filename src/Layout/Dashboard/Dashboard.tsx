@@ -10,7 +10,6 @@ import {AppState} from "../../Store/Reducers/root-reducer";
 import {selectBudget} from "../../Store/Selectors/Selectors";
 import * as constants from "./Assets/constants";
 import {NO_RESOURCES_ALERT_MSG} from "../../Assets/globalConstants";
-import {RunningInvestments} from "../Investment/RunningInvestments/RunningInvestments";
 import './Dashboard.css'
 import {ModalPopup} from "../../Components/Popup/ModalPopup";
 import {smallPopup} from "../../Components/Popup/DefaultPopupStyles/DefaultPopupStyles";
@@ -80,7 +79,6 @@ function Dashboard() {
                     />
                 </div>
             </ModalPopup>
-            <RunningInvestments/>
         </div>
   );
 }
