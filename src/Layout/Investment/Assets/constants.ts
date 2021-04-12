@@ -35,3 +35,4 @@ export const TYPE_OF_INVESTMENTS = {
 }
 
 export const ADD_INVESTMENT = "Add Investment"
+export const INVESTMENT_TYPE = "Investment type:"
