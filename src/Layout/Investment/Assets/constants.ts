@@ -1,5 +1,4 @@
 export const CREATE_INVESTMENT_FORM = {
-    CREATE_FORM_HEADER_TEXT: "Create Investment Form",
     SHORT_TERM_TITLE: "short term investment multiplying amount by 2% per 2 mins",
     SHORT_TERM_TEXT: "Short",
     MEDIUM_TERM_TITLE: "medium term investment multiplying amount by 4% per 4 mins",
@@ -34,3 +33,5 @@ export const TYPE_OF_INVESTMENTS = {
     MEDIUM_TERM: "medium term",
     LONG_TERM: "long term"
 }
+
+export const ADD_INVESTMENT = "Add Investment"
