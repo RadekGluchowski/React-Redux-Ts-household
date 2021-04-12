@@ -1,0 +1,10 @@
+.add-investment-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-investment-btn :disabled {
+    color: gray;
+}
+
+
