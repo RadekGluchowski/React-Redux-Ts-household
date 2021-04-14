@@ -1,4 +1,4 @@
-## Project written in typescript, package used:
+## Project wrote in typescript, a package used:
 
 ## Navigation
 ### React-router-dom -https://www.npmjs.com/package/react-router-dom
