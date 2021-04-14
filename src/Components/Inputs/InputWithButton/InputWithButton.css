@@ -5,12 +5,11 @@
     }
 
     .input-with-button input {
-        width: 50%;
+        width: 90%;
         margin: auto;
-        height: 20%;
     }
 
     .input-with-button button {
-        padding: 0.2em 1em;
+        width: 90%;
     }
 }
