@@ -1,9 +1,9 @@
-.create-investment-form input {
-    margin: 0.75rem;
-}
-
 .create-investment-form-container {
     padding: 1rem;
+}
+
+.create-investment-form input {
+    margin: 0.75rem;
 }
 
 .create-investment-form option {
@@ -12,4 +12,24 @@
 
 .create-investment-form select {
     outline: none;
+}
+
+@media screen and (max-width: 800px) {
+    .create-investment-form {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .create-investment-form input {
+        width: 100%;
+    }
+
+    .create-investment-form select {
+        width: 100%;
+    }
+
+    .create-investment-form button {
+        width: 100%;
+    }
 }
