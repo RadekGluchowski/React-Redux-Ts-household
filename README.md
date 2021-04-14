@@ -17,7 +17,7 @@
 ### React-circular-progressbar - https://www.npmjs.com/package/react-circular-progressbar
 ### React-countdown - https://www.npmjs.com/package/react-countdown
 ### React-icons - https://react-icons.github.io/react-icons/
-### eact-modal - https://www.npmjs.com/package/react-modal
+### React-modal - https://www.npmjs.com/package/react-modal
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
