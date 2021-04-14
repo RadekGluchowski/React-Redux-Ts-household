@@ -11,7 +11,7 @@ import {
   OPERATION,
   WITH_DATA
 } from "./Assets/constants";
-import React from "react";
+import "./HistoryScreen.css";
 
 function HistoryScreen() {
   const historyEvents = useSelector<AppState, History["events"]>(
@@ -20,11 +20,18 @@ function HistoryScreen() {
 
   const renderEvent = (event: Event) => {
     return (
-      <div>
-        <div> {OPERATION_TIME_STRING} {formatTime(event.time)}</div>
-        <div> {OPERATION} {checkOperation(event.type)} {event.type !== TYPES_OF_OPERATIONS.DONE_GOAL ? renderOperationPayload(event.payload) : null}
+      <>
+        <div className="history__inner">
+          <div className="history__preview">
+            <h6>{OPERATION_TIME_STRING} </h6>
+            <h2>{formatTime(event.time)}</h2>
+          </div>
+          <div className="history__info">
+            <h6>{OPERATION}</h6>
+            <h2>{checkOperation(event.type)} {event.type !== TYPES_OF_OPERATIONS.DONE_GOAL ? renderOperationPayload(event.payload) : null}</h2>
+          </div>
         </div>
-      </div>
+      </>
     );
   };
 
@@ -84,21 +91,20 @@ function HistoryScreen() {
   };
 
   const formatTime = (eventTime: Date) => {
-    return `${new Date(eventTime).getFullYear()} - ${
-      new Date(eventTime).getMonth() + 1
-    } - ${new Date(eventTime).getDate()} ${new Date(
-      eventTime
-    ).getHours()}:${new Date(eventTime).getMinutes()}:${new Date(
-      eventTime
-    ).getSeconds()}`;
+    return `${new Date(eventTime).getFullYear()} - ${new Date(eventTime).getMonth() + 1
+      } - ${new Date(eventTime).getDate()} ${new Date(
+        eventTime
+      ).getHours()}:${new Date(eventTime).getMinutes()}:${new Date(
+        eventTime
+      ).getSeconds()}`;
   };
 
   return (
     <>
       {historyEvents.length ? (
-        <div>
+        <div className="history-container" >
           {historyEvents.map((event: Event, index) => (
-            <div key={index}>{renderEvent(event)}</div>
+            <div className="history__outer" key={index}>{renderEvent(event)}</div>
           ))}
         </div>
       ) : null}
