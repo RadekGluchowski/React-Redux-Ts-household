@@ -57,6 +57,7 @@ header {
     right: 0%;
     transition: 350ms;
     background-color: black;
+    z-index: 1;
 }
 
 .nav-text {
