@@ -7,4 +7,7 @@
         display: flex;
         flex-flow: column;
     }
+    .create-goal-form button {
+        width: 90%
+    }
 }
